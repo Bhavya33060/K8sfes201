@@ -1,7 +1,7 @@
 import axios from "axios";
 
 // ✅ Use Kubernetes backend service name instead of localhost
-const CART_API_URL = "http://backend:8080/back1/api/cart";
+const CART_API_URL = "http://localhost:30083/back1/api/cart";
 
 export const addToCart = async (userId, productId) => {
   return await axios.post(`${CART_API_URL}/add`, {
