@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:30083/back1/api/products";  // Updated Backend API URL
+// ✅ Use Kubernetes service name instead of localhost
+const API_BASE_URL = "http://backend:8080/back1/api/products";
 
 // Fetch products by category (computers, mobiles, laptops, pendrives, or all)
 export const getProducts = async (category = "") => {
