@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const API_URL = "http://localhost:30083/auth";
+// ✅ Use backend service name instead of localhost (works inside Kubernetes)
+const API_URL = "http://backend:8080/auth";
 
 export const login = async (username, password) => {
   const response = await axios.post(`${API_URL}/login`, { username, password });
