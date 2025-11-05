@@ -1,20 +1,20 @@
 import axios from "axios";
 
-// ✅ Use Kubernetes service name instead of localhost
+// ✅ Correct backend path (products are under /api/products)
 const API_BASE_URL = "http://localhost:30083/back1/api/products";
 
-// Fetch products by category (computers, mobiles, laptops, pendrives, or all)
+// Fetch products by category
 export const getProducts = async (category = "") => {
   try {
     const response = await axios.get(`${API_BASE_URL}/${category}`);
-    return response.data;  // Return products array
+    return response.data;
   } catch (error) {
     console.error("Error fetching products:", error);
-    return []; // Return empty array on error
+    return [];
   }
 };
 
-// Get product image URL
+// Build image URL
 export const getProductImageUrl = (imagePath) => {
   return `${API_BASE_URL}/images/${imagePath}`;
 };
