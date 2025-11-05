@@ -1,11 +1,10 @@
 import axios from "axios";
 
-// ✅ Correct backend base URL (NO /api here)
-const API_URL = "http://localhost:30083/back1/auth";
+const API_URL = "http://localhost:30083/auth";  // ✅ Correct path
 
 export const login = async (username, password) => {
   const response = await axios.post(`${API_URL}/login`, { username, password });
-  localStorage.setItem("token", response.data); // token is raw string
+  localStorage.setItem("token", response.data);
   return response.data;
 };
 
