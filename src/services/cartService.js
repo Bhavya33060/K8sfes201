@@ -1,10 +1,10 @@
 import axios from "axios";
 
-// ✅ Use Kubernetes backend service name instead of localhost
+// ✅ Correct backend path (cart is under /api/cart)
 const CART_API_URL = "http://localhost:30083/back1/api/cart";
 
 export const addToCart = async (userId, productId) => {
-  return await axios.post(`${CART_API_URL}/add`, {
+  return axios.post(`${CART_API_URL}/add`, {
     userId,
     productId,
     quantity: 1,
@@ -17,13 +17,9 @@ export const getCartItems = async (userId) => {
 };
 
 export const clearCart = async (userId) => {
-  return await axios.delete(`${CART_API_URL}/clear/${userId}`);
+  return axios.delete(`${CART_API_URL}/clear/${userId}`);
 };
 
 export const removeCartItem = async (cartItemId) => {
-  try {
-    await axios.delete(`${CART_API_URL}/remove/${cartItemId}`);
-  } catch (error) {
-    console.error("Error removing item from cart", error);
-  }
+  return axios.delete(`${CART_API_URL}/remove/${cartItemId}`);
 };
